@@ -2,6 +2,7 @@ function Invoke-SpeedTest {
 <#
 .SYNOPSIS
 Module for creating metrics measurements Internet speed to mode cli (no use dependencies) and output to log file
+Data collection resource: speedtest.net (dev Ookla)
 Using native API method (via InternetExplorer) for web function start
 Using REST API GET method (via Invoke-RestMethod) for parsing JSON report
 Works in PSVersion 5.1 (PowerShell 7.3 not supported)
