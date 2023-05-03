@@ -7,7 +7,7 @@ Data collection resource: **speedtest.net (dev Ookla)**
 ## Install/Update
 Download and run the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Deploy-Invoke-SpeedTest.ps1)** \
 Works in PSVersion 5.1 (PowerShell 7.3 not supported)
-## Example work Module Invoke-SpeedTest
+## Module Invoke-SpeedTest
 ```
 PS C:\Users\Lifailon> Invoke-SpeedTest -LogWrite                                                                                                                                                                                                
 date               : 03.05.2023 14:27:26
