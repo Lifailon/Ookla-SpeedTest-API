@@ -11,15 +11,22 @@ Example:
 $SpeedTest = Invoke-SpeedTest # Output to variable full report
 Invoke-SpeedTest -LogWrite # Write to log
 Invoke-SpeedTest -LogWrite -LogPath "$home\Documents\Ookla-SpeedTest-Log.txt" # Set default path for log
-Invoke-SpeedTest -LogRead # Out log to PSObject
+Invoke-SpeedTest -LogRead | ft # Out log to PSObject
+Invoke-SpeedTest -LogClear # Clear log file
 .LINK
 https://github.com/Lifailon/Ookla-SpeedTest-API
 #>
 param(
     [switch]$LogWrite,
     $LogPath = "$home\Documents\Ookla-SpeedTest-Log.txt",
-    [switch]$LogRead
+    [switch]$LogRead,
+    [switch]$LogClear
 )
+
+if ($LogClear) {
+    $null > $LogPath
+    return
+}
 
 if (!$LogRead) {
 $ie = New-Object -ComObject InternetExplorer.Application
@@ -75,7 +82,7 @@ $down = "$d1.$d2 Mbit"
 $Upload = [string]($Data.result.upload)
 $u2 = $Upload[-3..-1] -Join ""
 $u1 = $Upload[-10..-4] -Join ""
-$up = "$d1.$d2 Mbit"
+$up = "$u1.$u2 Mbit"
 
 $Out_Log = "$time  Download: $down  Upload: $up  Ping latency: $ping ms"
 $Out_Log >> $LogPath
