@@ -39,7 +39,7 @@ additional_servers : {@{server_id=8191; server_name=Bryansk; sponsor_name=Sector
 path               : result/14708271987
 hasSecondary       : True
 ```
-## Example log read
+## Output log to console
 ```
 PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
 
