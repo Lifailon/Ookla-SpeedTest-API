@@ -9,50 +9,46 @@ Download and run the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/L
 Works in PSVersion 5.1 (PowerShell 7.3 not supported)
 ## Module Invoke-SpeedTest
 ```
-PS C:\Users\Lifailon> Invoke-SpeedTest -LogWrite                                                                                                                                                                                                
-date               : 03.05.2023 14:27:26
-id                 : 14688871750
-connection_icon    : wireless
-download           : 225900
-upload             : 273724
-latency            : 5
-distance           : 0
+PS C:\Users\Lifailon> Invoke-SpeedTest -LogWrite
+
+date               : 08.05.2023 11:33:04                                                                                
+id                 : 14708262994                                                                                        
+connection_icon    : wireless                                                                                           
+download           : 32101                                                                                              
+upload             : 32742
+latency            : 15
+distance           : 100
 country_code       : RU
-server_id          : 44487
-server_name        : Moscow
-sponsor_name       : VDSina.com
+server_id          : 46278
+server_name        : Fokino
+sponsor_name       : Fokks - Promyshlennaya avtomatika Ltd.
 sponsor_url        :
 connection_mode    : multi
-isp_name           : Seven Sky
-isp_rating         : 3.5
-test_rank          : 100
-test_grade         : A+
-test_rating        : 5
-idle_latency       : 6
-download_latency   : 63
-upload_latency     : 11
-additional_servers : {@{server_id=14190; server_name=Moscow; sponsor_name=DOM.RU}, @{server_id=17091; server_name=Mosco
-                     w; sponsor_name=Telecom Center}, @{server_id=1907; server_name=Moscow; sponsor_name=MTS}}
-path               : result/14688871750
+isp_name           : Resource Link
+isp_rating         : 4.0
+test_rank          : 61
+test_grade         : B-
+test_rating        : 4
+idle_latency       : 18
+download_latency   : 108
+upload_latency     : 96
+additional_servers : {@{server_id=8191; server_name=Bryansk; sponsor_name=SectorTelecom.ru}, @{server_id=2707; server_n
+                     ame=Bryansk; sponsor_name=DOM.RU}, @{server_id=18218; server_name=Bryansk; sponsor_name=RIA-link L
+                     td.}}
+path               : result/14708262994
 hasSecondary       : True
 ```
 ## Example log read
 ```
 PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
 
-Date       Time     Download     Upload       Ping
-----       ----     --------     ------       ----
-05/02/2023 11:41:47 305.133 Mbit 305.133 Mbit 5 ms
-05/02/2023 11:48:12 310.265 Mbit 310.265 Mbit 3 ms
-05/02/2023 13:10:07 243.389 Mbit 243.389 Mbit 3 ms
-05/02/2023 13:50:08 309.560 Mbit 309.560 Mbit 4 ms
-05/02/2023 13:59:39 312.211 Mbit 312.211 Mbit 5 ms
-05/02/2023 14:05:00 306.246 Mbit 306.246 Mbit 4 ms
-05/02/2023 14:09:13 305.068 Mbit 305.068 Mbit 4 ms
-05/02/2023 14:12:03 305.910 Mbit 305.910 Mbit 4 ms
-05/02/2023 14:14:53 306.736 Mbit 306.736 Mbit 4 ms
-05/02/2023 16:58:20 306.327 Mbit 306.327 Mbit 4 ms
-05/03/2023 14:27:26 225.900 Mbit 225.900 Mbit 6 ms
+Date       Time     Download    Upload      Ping
+----       ----     --------    ------      ----
+05/08/2023 02:10:32 36.293 Mbit 34.832 Mbit 16 ms
+05/08/2023 02:39:18 34.623 Mbit 34.623 Mbit 18 ms
+05/08/2023 02:49:01 33.530 Mbit 35.573 Mbit 16 ms
+05/08/2023 10:50:50 32.638 Mbit 37.382 Mbit 15 ms
+05/08/2023 11:20:33 37.402 Mbit 39.780 Mbit 16 ms
+05/08/2023 11:21:34 36.034 Mbit 35.835 Mbit 16 ms
+05/08/2023 11:33:04 32.101 Mbit 32.742 Mbit 18 ms
 ```
-## Example work
-https://user-images.githubusercontent.com/116945542/235663503-6fe97b6e-7ef5-4ec0-a424-2317e00eacae.mp4
