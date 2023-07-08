@@ -61,6 +61,23 @@ server_id server_name sponsor_name
 Result to UI: https://www.speedtest.net/result/14708271987 \
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/UI.jpg)
 
+## 📑 Output log to console
+```
+PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
+
+Date       Time     Download    Upload      Ping
+----       ----     --------    ------      ----
+05/08/2023 02:10:32 36.293 Mbit 34.832 Mbit 16 ms
+05/08/2023 02:39:18 34.623 Mbit 34.623 Mbit 18 ms
+05/08/2023 02:49:01 33.530 Mbit 35.573 Mbit 16 ms
+05/08/2023 10:50:50 32.638 Mbit 37.382 Mbit 15 ms
+05/08/2023 11:20:33 37.402 Mbit 39.780 Mbit 16 ms
+05/08/2023 11:21:34 36.034 Mbit 35.835 Mbit 16 ms
+05/08/2023 11:33:04 32.101 Mbit 32.742 Mbit 18 ms
+05/08/2023 11:36:10 33.418 Mbit 35.442 Mbit 17 ms
+...
+```
+
 ## 📊 PowerShell + InfluxDB + Grafana
 
 ### Create Service
@@ -96,20 +113,3 @@ Running SpeedTestTo-InfluxDB Automatic
 `SELECT download,upload FROM speedtest`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
-
-
-## 📑 Output log to console
-```
-PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
-
-Date       Time     Download    Upload      Ping
-----       ----     --------    ------      ----
-05/08/2023 02:10:32 36.293 Mbit 34.832 Mbit 16 ms
-05/08/2023 02:39:18 34.623 Mbit 34.623 Mbit 18 ms
-05/08/2023 02:49:01 33.530 Mbit 35.573 Mbit 16 ms
-05/08/2023 10:50:50 32.638 Mbit 37.382 Mbit 15 ms
-05/08/2023 11:20:33 37.402 Mbit 39.780 Mbit 16 ms
-05/08/2023 11:21:34 36.034 Mbit 35.835 Mbit 16 ms
-05/08/2023 11:33:04 32.101 Mbit 32.742 Mbit 18 ms
-05/08/2023 11:36:10 33.418 Mbit 35.442 Mbit 17 ms
-```
