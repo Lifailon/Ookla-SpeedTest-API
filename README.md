@@ -7,13 +7,14 @@ Data collection resource: **speedtest.net (dev Ookla)**
 - Using **REST API GET method (via Invoke-RestMethod)** for parsing JSON report
 
 ## 🚀 Install/Update
+
+✔️ Works in PSVersion 5.1 \
+❌ IE to PowerShell 7.3 not supported
+
 For install or update module from the GitHub repository (used the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1)**) **use the command in the powershell console**:
 ```
 Invoke-Expression(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Lifailon/Ookla-SpeedTest-API/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1")
 ```
-
-✔️ Works in PSVersion 5.1 \
-❌ IE to PowerShell 7.3 not supported
 
 ## 🔔 Module Invoke-SpeedTest
 ```
