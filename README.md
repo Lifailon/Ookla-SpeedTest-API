@@ -60,7 +60,9 @@ Result to UI: https://www.speedtest.net/result/14708271987 \
 
 ### 1️⃣ Create Service
 
-Download script **[SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)**
+Download script: **[SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)** \
+Download **[NSSM](https://www.nssm.cc/download)** \
+Copy files to folder: `C:\NSSM\`
 
 ```
 $powershell_Path = (Get-Command powershell).Source
