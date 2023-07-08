@@ -8,7 +8,8 @@ Data collection resource: **speedtest.net (dev Ookla)**
 
 ## 🚀 Install/Update
 Download and run the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Deploy-Invoke-SpeedTest.ps1)** \
-✔️ Works in PSVersion 5.1 (❌ PowerShell 7.3 not supported)
+✔️ Works in PSVersion 5.1
+❌ IE to PowerShell 7.3 not supported
 
 ## 📊 Module Invoke-SpeedTest
 ```
@@ -54,6 +55,8 @@ server_id server_name sponsor_name
 ## 🎉 Example
 Result to UI: https://www.speedtest.net/result/14708271987 \
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/UI.jpg)
+
+## PowerShell + InfluxDB + Grafana
 
 ## 📑 Output log to console
 ```
