@@ -2,7 +2,6 @@ $ip    = "192.168.3.104"
 $p     = "8086"
 $db    = "powershell"
 $table = "speedtest"
-$sleep = 90
 
 $ipp   = $ip+":"+$p
 $url   = "http://$ipp/write?db=$db"
@@ -18,5 +17,6 @@ while ($True) {
     $timestamp = ([string]$unixtime -replace "\..+") + "000000000"
 
     Invoke-RestMethod -Method POST -Uri $url -Body "$table,host=$hn download=$down,upload=$up,ping=$ping $timestamp"
-    Start-Sleep -Seconds $sleep
+    Start-Sleep -Seconds 90
+	Get-Process iexplore* | Stop-Process
 }
