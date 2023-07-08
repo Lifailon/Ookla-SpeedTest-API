@@ -59,6 +59,9 @@ Result to UI: https://www.speedtest.net/result/14708271987 \
 # 📊 PowerShell + InfluxDB + Grafana
 
 ### Create Service
+
+Download script **[SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)**
+
 ```
 $powershell_Path = (Get-Command powershell).Source
 $NSSM_Path = "C:\NSSM\NSSM-2.24.exe"
