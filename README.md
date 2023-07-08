@@ -8,10 +8,10 @@ Data collection resource: **speedtest.net (dev Ookla)**
 
 ## 🚀 Install/Update
 Download and run the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Deploy-Invoke-SpeedTest.ps1)** \
-✔️ Works in PSVersion 5.1
+✔️ Works in PSVersion 5.1 \
 ❌ IE to PowerShell 7.3 not supported
 
-## 📊 Module Invoke-SpeedTest
+### 🔔 Module Invoke-SpeedTest
 ```
 PS C:\Users\Lifailon> $ookla = Invoke-SpeedTest -LogWrite
 
@@ -52,13 +52,39 @@ server_id server_name sponsor_name
     18218 Bryansk     RIA-link Ltd.
 ```
 
-## 🎉 Example
+### 🎉 Example
 Result to UI: https://www.speedtest.net/result/14708271987 \
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/UI.jpg)
 
-## PowerShell + InfluxDB + Grafana
+# 📊 PowerShell + InfluxDB + Grafana
 
-## 📑 Output log to console
+### Create Service
+```
+$powershell_Path = (Get-Command powershell).Source
+$NSSM_Path = "C:\NSSM\NSSM-2.24.exe"
+$Script_Path = "C:\NSSM\SpeedTestTo-InfluxDB.ps1"
+$Service_Name = "SpeedTestTo-InfluxDB"
+& $NSSM_Path install $Service_Name $powershell_Path -ExecutionPolicy Bypass -NoProfile -f $Script_Path
+Get-Service $Service_Name | Start-Service
+Get-Service $Service_Name | Set-Service -StartupType Automatic
+```
+
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Service.jpg)
+
+### View Data
+
+`SELECT * FROM speedtest WHERE time > now() +3h -30m`
+
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/InfluxDB-Data.jpg)
+
+### Add to Dashboard
+
+`SELECT download,upload FROM speedtest`
+
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
+
+
+# 📑 Output log to console
 ```
 PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
 
