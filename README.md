@@ -11,7 +11,7 @@ Download and run the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/L
 ✔️ Works in PSVersion 5.1 \
 ❌ IE to PowerShell 7.3 not supported
 
-### 🔔 Module Invoke-SpeedTest
+## 🔔 Module Invoke-SpeedTest
 ```
 PS C:\Users\Lifailon> $ookla = Invoke-SpeedTest -LogWrite
 
@@ -56,9 +56,9 @@ server_id server_name sponsor_name
 Result to UI: https://www.speedtest.net/result/14708271987 \
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/UI.jpg)
 
-# 📊 PowerShell + InfluxDB + Grafana
+## 📊 PowerShell + InfluxDB + Grafana
 
-### Create Service
+### 1️⃣ Create Service
 
 Download script **[SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)**
 
@@ -78,20 +78,20 @@ Status Name                 StartType
 Running SpeedTestTo-InfluxDB Automatic
 ```
 
-### View Data
+### 2️⃣ View Data
 
 `SELECT * FROM speedtest WHERE time > now() +3h -30m`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/InfluxDB-Data.jpg)
 
-### Add to Dashboard
+### 3️⃣ Add to Dashboard
 
 `SELECT download,upload FROM speedtest`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
 
 
-# 📑 Output log to console
+## 📑 Output log to console
 ```
 PS C:\Users\Lifailon> Invoke-SpeedTest -LogRead | ft
 
