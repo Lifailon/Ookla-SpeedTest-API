@@ -9,7 +9,7 @@ Data collection resource: **speedtest.net (dev Ookla)**
 ## 🚀 Install/Update
 For install or update module from the GitHub repository (used the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1)**) **use the command in the powershell console**:
 ```
-Invoke-Expression(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Lifailon/pSyslog/rsa/Module/Deploy-pSyslog.ps1")
+Invoke-Expression(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Lifailon/Ookla-SpeedTest-API/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1")
 ```
 
 ✔️ Works in PSVersion 5.1 \
