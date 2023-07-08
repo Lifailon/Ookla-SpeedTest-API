@@ -54,7 +54,7 @@ server_id server_name sponsor_name
 
 ### 🎉 Example
 Result to UI: https://www.speedtest.net/result/14708271987 \
-![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/UI.jpg)
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/UI.jpg)
 
 # 📊 PowerShell + InfluxDB + Grafana
 
@@ -67,9 +67,13 @@ $Service_Name = "SpeedTestTo-InfluxDB"
 & $NSSM_Path install $Service_Name $powershell_Path -ExecutionPolicy Bypass -NoProfile -f $Script_Path
 Get-Service $Service_Name | Start-Service
 Get-Service $Service_Name | Set-Service -StartupType Automatic
-```
 
-![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Service.jpg)
+Get-Service $Service_Name | select Status,Name,StartType
+
+Status Name                 StartType
+ ------ ----                 ---------
+Running SpeedTestTo-InfluxDB Automatic
+```
 
 ### View Data
 
