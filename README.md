@@ -58,10 +58,10 @@ Result to UI: https://www.speedtest.net/result/14708271987 \
 
 ## 📊 PowerShell + InfluxDB + Grafana
 
-### 1️⃣ Create Service
+### Create Service
 
-Download script: **[SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)** \
-Download **[NSSM](https://www.nssm.cc/download)** \
+**Download script: [SpeedTestTo-InfluxDB.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/SpeedTestTo-InfluxDB.ps1)** (change the IP-address and database name for InfluxDB) \
+**Download [NSSM](https://www.nssm.cc/download)** \
 Copy files to folder: `C:\NSSM\`
 
 ```
@@ -80,13 +80,13 @@ Status Name                 StartType
 Running SpeedTestTo-InfluxDB Automatic
 ```
 
-### 2️⃣ View Data
+### View Data
 
 `SELECT * FROM speedtest WHERE time > now() +3h -30m`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/InfluxDB-Data.jpg)
 
-### 3️⃣ Add to Dashboard
+### Add to Dashboard
 
 `SELECT download,upload FROM speedtest`
 
