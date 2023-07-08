@@ -1,5 +1,5 @@
 # Ookla-SpeedTest-API
-Module creating metrics measurements Internet speed to mode cli (no use dependencies) for output to console PSObject and log file \
+Module creating metrics measurements Internet speed to mode cli (no use dependencies) for output to object format and log file \
 Data collection resource: **speedtest.net (dev Ookla)**
 
 ## 📚 Used methods
