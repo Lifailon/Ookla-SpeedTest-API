@@ -62,8 +62,8 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
     }
     
 	### Process check
-    if (Get-Process *iexplore*) {
-        Get-Process *iexplore* | Stop-Process
+    while (Get-Process *iexplore*) {
+        Get-Process *iexplore* | Stop-Process -Force
     }
     
     ### Parsing Web Content (JSON)
