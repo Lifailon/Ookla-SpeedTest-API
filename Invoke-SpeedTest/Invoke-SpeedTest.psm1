@@ -61,7 +61,7 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
         }
     }
     
-	### Process check
+    ### Process check
     while (Get-Process *iexplore*) {
         Get-Process *iexplore* | Stop-Process -Force
     }
