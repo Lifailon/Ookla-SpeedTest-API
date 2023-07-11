@@ -52,7 +52,7 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
             Write-Progress -Activity "SpeedTest Completed" -PercentComplete 100
             $Result_URL = $ie.LocationURL
             $ie.Quit()
-			Start-Sleep 1
+            Start-Sleep 1
             break
         } else {
             Start-Sleep 1
@@ -61,7 +61,7 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
         }
     }
     
-    ### Process check
+    ### Debug stop process
     while (Get-Process *iexplore*) {
         Get-Process *iexplore* | Stop-Process -Force
     }
