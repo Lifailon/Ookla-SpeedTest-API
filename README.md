@@ -104,7 +104,7 @@ Running SpeedTestTo-InfluxDB Automatic
 
 ### View Data
 
-`SELECT * FROM speedtest WHERE time > now() -3h`
+`SELECT * FROM "speedtest" WHERE time > now() - 40m`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/InfluxDB-Data.jpg)
 
