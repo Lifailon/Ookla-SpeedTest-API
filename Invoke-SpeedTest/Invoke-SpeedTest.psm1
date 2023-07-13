@@ -51,19 +51,14 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
         if ($ie.LocationURL -notlike $Source_URL) {
             Write-Progress -Activity "SpeedTest Completed" -PercentComplete 100
             $Result_URL = $ie.LocationURL
-            $ie.Quit()
-            Start-Sleep 1
+			$ie.Stop()
+			$ie.Quit()
             break
         } else {
             Start-Sleep 1
             $Sec += 1
             Write-Progress -Activity "Started SpeedTest" -Status "Run time: $Sec sec" -PercentComplete $Sec
         }
-    }
-    
-    ### Debug stop process
-    while (Get-Process *iexplore*) {
-        Get-Process *iexplore* | Stop-Process -Force
     }
     
     ### Parsing Web Content (JSON)
@@ -93,6 +88,9 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
     $Out_Log = "$time  Download: $down  Upload: $up  Ping latency: $ping ms"
     $Out_Log >> $LogPath
     }
+    
+    ### Debug stop process
+    Get-Process *iexplore* | Stop-Process -Force -InformationAction Ignore
     
     $Data.result
     }
