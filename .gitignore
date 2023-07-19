@@ -1,2 +1,2 @@
 # Ignore log files
-Logs
+Logs/*.txt
