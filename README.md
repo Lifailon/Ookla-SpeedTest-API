@@ -112,7 +112,7 @@ Running SpeedTestTo-InfluxDB Automatic
 
 `SELECT download,upload FROM speedtest`
 
-![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard-1.jpg)
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard-2.jpg)
 
