@@ -114,6 +114,8 @@ Running SpeedTestTo-InfluxDB Automatic
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
 
+![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard-2.jpg)
+
 ### Changelog:
 
 **09.07.2023:** Added script create service for dashboard Grafana from the InfluxDB \
