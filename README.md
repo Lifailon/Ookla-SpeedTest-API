@@ -116,5 +116,5 @@ Running SpeedTestTo-InfluxDB Automatic
 
 ### Changelog:
 
-**09.07.2023:** Added script create service for dashboard Grafana from the InfluxDB
+**09.07.2023:** Added script create service for dashboard Grafana from the InfluxDB \
 **19.07.2023:** Debug for process stoppage (added block finally) and disable check certificate to IE settings
