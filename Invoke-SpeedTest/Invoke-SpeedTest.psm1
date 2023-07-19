@@ -10,7 +10,7 @@ Works in PSVersion 5.1 (PowerShell 7.3 not supported)
 Example:
 $SpeedTest = Invoke-SpeedTest # Output to variable full report
 Invoke-SpeedTest -LogWrite # Write to log
-Invoke-SpeedTest -LogWrite -LogPath "$home\Documents\Ookla-SpeedTest-Log.txt" # Set default path for log
+Invoke-SpeedTest -LogWrite -LogPath "$env:temp\Documents\Ookla-SpeedTest-Log.txt" # Set default path for log
 Invoke-SpeedTest -LogRead | ft # Out log to PSObject
 Invoke-SpeedTest -LogClear # Clear log file
 .LINK
@@ -18,7 +18,7 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
 #>
     param(
         [switch]$LogWrite,
-        $LogPath = "$home\Documents\Ookla-SpeedTest-Log.txt",
+        $LogPath = "$env:temp\Ookla-SpeedTest-Log.txt",
         [switch]$LogRead,
         [switch]$LogClear
     )
@@ -29,7 +29,19 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
     }
     
     if (!$LogRead) {
+    ### IE Settings: Certificate check disable
+    $reg_path1 = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings"
+    $reg_path2 = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing"
+    if ((Get-ItemProperty $reg_path1).CertificateRevocation -eq 1) {
+        Set-ItemProperty -Path $reg_path1 -Name CertificateRevocation -Value 0
+        Set-ItemProperty -Path $reg_path1 -Name WarnonBadCertRecving -Value 0
+        Set-ItemProperty -Path $reg_path2 -Name State -Value 146944 # Enable: 146432
+    }
+    
+    try {
     $ie = New-Object -ComObject InternetExplorer.Application
+    # Debug
+    # $ie.Visible = $true
     $ie.navigate("https://www.speedtest.net")
     
     while ($True) {
@@ -40,13 +52,14 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
         }
     }
     
+    $Source_URL = $ie.LocationURL
     $SPAN_Elements = $ie.document.IHTMLDocument3_getElementsByTagName("SPAN")
     $Go_Button = $SPAN_Elements | Where-Object innerText -like "go"
     $Go_Button.Click()
     
     ### Get result URL
-    $Source_URL = $ie.LocationURL
     $Sec = 0
+    $Proc = 0
     while ($True) {
         if ($ie.LocationURL -notlike $Source_URL) {
             Write-Progress -Activity "SpeedTest Completed" -PercentComplete 100
@@ -55,9 +68,10 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
 			$ie.Quit()
             break
         } else {
-            Start-Sleep 1
-            $Sec += 1
-            Write-Progress -Activity "Started SpeedTest" -Status "Run time: $Sec sec" -PercentComplete $Sec
+            Start-Sleep 2
+            $Sec += 2
+            $Proc += 1
+            Write-Progress -Activity "Started SpeedTest" -Status "Run time: $Sec sec" -PercentComplete $Proc
         }
     }
     
@@ -89,10 +103,14 @@ https://github.com/Lifailon/Ookla-SpeedTest-API
     $Out_Log >> $LogPath
     }
     
+    return $Data.result
+    }
     ### Debug stop process
-    Get-Process *iexplore* | Stop-Process -Force -InformationAction Ignore
-    
-    $Data.result
+    finally {
+        if (Get-Process *iexplore*) {
+            Get-Process *iexplore* | Stop-Process -Force -InformationAction Ignore
+        }
+    }
     }
     
     if ($LogRead) {

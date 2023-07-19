@@ -1,6 +1,6 @@
 ### Variables for connect to InfluxDB
 $ip    = "192.168.3.104" # IP-address server
-$p     = "8086"			 # Port server
+$p     = "8086"          # Port server
 $db    = "powershell"	 # Database name
 $table = "speedtest"	 # Measurement/Table name
 ###
@@ -11,7 +11,7 @@ $hn    = $ENV:COMPUTERNAME
 $tz    = (Get-TimeZone).BaseUtcOffset.TotalMinutes
 
 while ($True) {
-    $test  = Invoke-SpeedTest
+    $test  = Invoke-SpeedTest -LogWrite # Parameter (-LogWrite) for activate write local logging
     $down  = $test.download
     $up    = $test.upload
     $ping  = $test.latency

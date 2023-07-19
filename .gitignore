@@ -1,2 +1,2 @@
-# Ignore log files
-Logs/*.txt
+Logs
+Scripts/*.reg
