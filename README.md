@@ -113,3 +113,8 @@ Running SpeedTestTo-InfluxDB Automatic
 `SELECT download,upload FROM speedtest`
 
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/Grafana-Dashboard.jpg)
+
+### Changelog:
+
+**09.07.2023:** Added script create service for dashboard Grafana from the InfluxDB
+**19.07.2023:** Debug for process stoppage (added block finally) and disable check certificate to IE settings
