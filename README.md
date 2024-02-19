@@ -1,8 +1,14 @@
 # Ookla-SpeedTest-API
-Module creating metrics measurements Internet speed to mode cli (no use dependencies) for output to object format and log file \
-Data collection resource: **speedtest.net (dev Ookla)**
+
+[![GitHub Release](https://img.shields.io/github/v/release/Lifailon/Ookla-SpeedTest-API?display_name=release&logo=GitHub&label=GitHub&link=https%3A%2F%2Fgithub.com%2FLifailon%2FOokla-SpeedTest-API%2F)](https://github.com/Lifailon/Ookla-SpeedTest-API)
+[![NuGet Version](https://img.shields.io/nuget/v/Ookla-SpeedTest?logo=NuGet&label=NuGet&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FOokla-SpeedTest)](https://www.nuget.org/packages/Ookla-SpeedTest)
+[![GitHub top language](https://img.shields.io/github/languages/top/Lifailon/Ookla-SpeedTest-API?logo=PowerShell&link=https%3A%2F%2Fgithub.com%2FPowerShell%2FPowerShell)](https://github.com/PowerShell/PowerShell)
+[![GitHub License](https://img.shields.io/github/license/Lifailon/Ookla-SpeedTest-API?link=https%3A%2F%2Fgithub.com%2FLifailon%2FOokla-SpeedTest-API%2Fblob%2Frsa%2FLICENSE)](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/LICENSE)
+
+Module for get metrics measurements Internet speed to mode cli (no use dependencies) and output to **PSObject** format or log file. Data collection resource: **speedtest.net (dev Ookla)**.
 
 ## 📚 Used methods
+
 - Using **native API method (via COM Object InternetExplorer)** for web function start
 - Using **REST API GET method (via Invoke-RestMethod)** for parsing JSON report
 
@@ -11,7 +17,24 @@ Data collection resource: **speedtest.net (dev Ookla)**
 ✔️ Works in PSVersion 5.1 \
 ❌ IE to PowerShell 7.3 not supported
 
-For install or update module from the GitHub repository (used the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1)**) **use the command in the powershell console**:
+Use the [NuGet](https://www.nuget.org/packages/Ookla-SpeedTest) package manager:
+
+```PowerShell
+Install-Module Ookla-SpeedTest -Repository NuGet
+```
+
+💡 You must have a NuGet repository registered:
+
+```PowerShell
+Get-PackageProvider # check that the nuget packet provider is installed
+Find-PackageProvider # display all available package managers
+Install-PackageProvider nuget # install the nuget package manager
+Set-PackageSource nuget -Trusted # allow packages to be installed from the specified source
+Find-Package Ookla-SpeedTest # search for packages by name in all managers
+Install-Module Ookla-SpeedTest -Scope CurrentUser # install the module for the current user
+```
+
+For install or update module from the GitHub repository (used the script **[Deploy-Invoke-SpeedTest.ps1](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1)**) use the command in the PowerShell console:
 ```
 Invoke-Expression(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Lifailon/Ookla-SpeedTest-API/rsa/Scripts/Deploy-Invoke-SpeedTest.ps1")
 ```
@@ -19,7 +42,6 @@ Invoke-Expression(New-Object Net.WebClient).DownloadString("https://raw.githubus
 ## 🔔 Module Invoke-SpeedTest
 ```
 PS C:\Users\Lifailon> $ookla = Invoke-SpeedTest -LogWrite
-
 
 date               : 08.05.2023 11:36:10
 id                 : 14708271987
@@ -58,7 +80,9 @@ server_id server_name sponsor_name
 ```
 
 ### 🎉 Example
-Result to UI: https://www.speedtest.net/result/14708271987 \
+
+Result to UI: https://www.speedtest.net/result/14708271987
+
 ![Image alt](https://github.com/Lifailon/Ookla-SpeedTest-API/blob/rsa/Screen/UI.jpg)
 
 ## 📑 Output log to console

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Ookla-SpeedTest</id>
+    <version>1.1.1</version>
+    <authors>Lifailon</authors>
+    <owners>Lifailon</owners>
+    <description>Module creating metrics measurements Internet speed to mode cli (no use dependencies). Using native API.</description>
+    <tags>PowerShell, Module, cli, SpeedTest, InternetExplorer, Network, COM</tags>
+    <repository type="git" url="https://github.com/Lifailon/Ookla-SpeedTest-API" />
+    <projectUrl>https://github.com/Lifailon/Ookla-SpeedTest-API</projectUrl>
+    <contentFiles>
+      <files include="Ookla-SpeedTest.psm1" buildAction="Content" />
+      <files include="Ookla-SpeedTest.psd1" buildAction="Content" />
+      <files include="README.md" buildAction="Content" />
+      <files include="LICENSE" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+</package>
